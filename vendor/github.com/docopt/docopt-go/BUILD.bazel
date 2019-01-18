@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "doc.go",
+        "docopt.go",
+        "error.go",
+        "opts.go",
+        "pattern.go",
+        "token.go",
+    ],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/docopt/docopt-go",
+    importpath = "github.com/docopt/docopt-go",
+    visibility = ["//visibility:public"],
+)

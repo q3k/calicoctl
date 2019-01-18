@@ -1,0 +1,37 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "bgppeer.go",
+        "converter.go",
+        "hostendpoint.go",
+        "ippool.go",
+        "names.go",
+        "node.go",
+        "policy.go",
+        "profile.go",
+        "rule.go",
+        "rules_def.go",
+        "selectors.go",
+        "workloadendpoint.go",
+    ],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/projectcalico/libcalico-go/lib/upgrade/converters",
+    importpath = "github.com/projectcalico/libcalico-go/lib/upgrade/converters",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/projectcalico/libcalico-go/lib/apis/v1:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/apis/v1/unversioned:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/apis/v3:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/backend/model:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/errors:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/ipip:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/names:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/net:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/numorstring:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/scope:go_default_library",
+        "//vendor/github.com/sirupsen/logrus:go_default_library",
+        "//vendor/k8s.io/apimachinery/pkg/apis/meta/v1:go_default_library",
+        "//vendor/k8s.io/apimachinery/pkg/runtime:go_default_library",
+    ],
+)

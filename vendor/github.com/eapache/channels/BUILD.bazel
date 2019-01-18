@@ -1,0 +1,20 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "batching_channel.go",
+        "black_hole.go",
+        "channels.go",
+        "infinite_channel.go",
+        "native_channel.go",
+        "overflowing_channel.go",
+        "resizable_channel.go",
+        "ring_channel.go",
+        "shared_buffer.go",
+    ],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/eapache/channels",
+    importpath = "github.com/eapache/channels",
+    visibility = ["//visibility:public"],
+    deps = ["//vendor/github.com/eapache/queue:go_default_library"],
+)

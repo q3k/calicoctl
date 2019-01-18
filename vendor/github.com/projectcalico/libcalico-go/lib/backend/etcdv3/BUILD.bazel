@@ -1,0 +1,23 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "conversion.go",
+        "etcdv3.go",
+        "watcher.go",
+    ],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/projectcalico/libcalico-go/lib/backend/etcdv3",
+    importpath = "github.com/projectcalico/libcalico-go/lib/backend/etcdv3",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/coreos/etcd/clientv3:go_default_library",
+        "//vendor/github.com/coreos/etcd/mvcc/mvccpb:go_default_library",
+        "//vendor/github.com/coreos/etcd/pkg/transport:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/apiconfig:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/backend/api:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/backend/model:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/errors:go_default_library",
+        "//vendor/github.com/sirupsen/logrus:go_default_library",
+    ],
+)

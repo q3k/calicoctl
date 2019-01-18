@@ -1,0 +1,10 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["resource.go"],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/projectcalico/libcalico-go/lib/namespace",
+    importpath = "github.com/projectcalico/libcalico-go/lib/namespace",
+    visibility = ["//visibility:public"],
+    deps = ["//vendor/github.com/projectcalico/libcalico-go/lib/apis/v3:go_default_library"],
+)

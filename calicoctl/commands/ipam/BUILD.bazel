@@ -12,7 +12,7 @@ go_library(
         "//calicoctl/commands/argutils:go_default_library",
         "//calicoctl/commands/clientmgr:go_default_library",
         "//calicoctl/commands/constants:go_default_library",
-        "@com_github_docopt_docopt_go//:go_default_library",
-        "@com_github_projectcalico_libcalico_go//lib/net:go_default_library",
+        "//vendor/github.com/docopt/docopt-go:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/net:go_default_library",
     ],
 )

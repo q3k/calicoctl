@@ -1,0 +1,35 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "bgpconfig.go",
+        "bgppeer.go",
+        "clusterinfo.go",
+        "constants.go",
+        "doc.go",
+        "felixconfig.go",
+        "globalnetworkpolicy.go",
+        "globalnetworkset.go",
+        "hostendpoint.go",
+        "ippool.go",
+        "networkpolicy.go",
+        "node.go",
+        "policy.go",
+        "profile.go",
+        "register.go",
+        "workloadendpoint.go",
+        "zz_generated.deepcopy.go",
+    ],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/projectcalico/libcalico-go/lib/apis/v3",
+    importpath = "github.com/projectcalico/libcalico-go/lib/apis/v3",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/projectcalico/libcalico-go/lib/apis/v1:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/numorstring:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/selector:go_default_library",
+        "//vendor/k8s.io/apimachinery/pkg/apis/meta/v1:go_default_library",
+        "//vendor/k8s.io/apimachinery/pkg/runtime:go_default_library",
+        "//vendor/k8s.io/apimachinery/pkg/runtime/schema:go_default_library",
+    ],
+)

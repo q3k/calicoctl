@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "ast.go",
+        "parser.go",
+        "stringset.go",
+    ],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/projectcalico/libcalico-go/lib/selector/parser",
+    importpath = "github.com/projectcalico/libcalico-go/lib/selector/parser",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/projectcalico/libcalico-go/lib/hash:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/selector/tokenizer:go_default_library",
+        "//vendor/github.com/sirupsen/logrus:go_default_library",
+    ],
+)

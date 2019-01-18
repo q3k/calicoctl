@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "asnumber.go",
+        "doc.go",
+        "port.go",
+        "protocol.go",
+        "type.go",
+        "uint8orstring.go",
+    ],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/projectcalico/libcalico-go/lib/numorstring",
+    importpath = "github.com/projectcalico/libcalico-go/lib/numorstring",
+    visibility = ["//visibility:public"],
+)

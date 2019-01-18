@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "inline_fnv.go",
+        "inline_strconv_parse.go",
+        "points.go",
+        "rows.go",
+        "statistic.go",
+        "time.go",
+    ],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/influxdata/platform/models",
+    importpath = "github.com/influxdata/platform/models",
+    visibility = ["//visibility:public"],
+    deps = ["//vendor/github.com/influxdata/platform/pkg/escape:go_default_library"],
+)

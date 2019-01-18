@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "baked_in.go",
+        "cache.go",
+        "doc.go",
+        "regexes.go",
+        "util.go",
+        "validator.go",
+    ],
+    importmap = "github.com/projectcalico/calicoctl/vendor/gopkg.in/go-playground/validator.v8",
+    importpath = "gopkg.in/go-playground/validator.v8",
+    visibility = ["//visibility:public"],
+)

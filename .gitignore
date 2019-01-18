@@ -21,7 +21,6 @@ calicoctl/calicoctl
 bin
 release
 *.coverprofile
-vendor
 nosetests.xml
 testfile.yaml
 report/*.xml

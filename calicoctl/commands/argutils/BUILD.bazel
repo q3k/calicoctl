@@ -9,7 +9,7 @@ go_library(
     importpath = "github.com/projectcalico/calicoctl/calicoctl/commands/argutils",
     visibility = ["//visibility:public"],
     deps = [
-        "@com_github_projectcalico_libcalico_go//lib/net:go_default_library",
-        "@com_github_projectcalico_libcalico_go//lib/numorstring:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/net:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/numorstring:go_default_library",
     ],
 )

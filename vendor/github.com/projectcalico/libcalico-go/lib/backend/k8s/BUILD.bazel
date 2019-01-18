@@ -1,0 +1,30 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["k8s.go"],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/projectcalico/libcalico-go/lib/backend/k8s",
+    importpath = "github.com/projectcalico/libcalico-go/lib/backend/k8s",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/projectcalico/libcalico-go/lib/apiconfig:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/apis/v3:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/backend/api:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/backend/k8s/conversion:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/backend/k8s/resources:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/backend/model:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/errors:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/net:go_default_library",
+        "//vendor/github.com/sirupsen/logrus:go_default_library",
+        "//vendor/k8s.io/api/core/v1:go_default_library",
+        "//vendor/k8s.io/apimachinery/pkg/apis/meta/v1:go_default_library",
+        "//vendor/k8s.io/apimachinery/pkg/runtime:go_default_library",
+        "//vendor/k8s.io/apimachinery/pkg/runtime/schema:go_default_library",
+        "//vendor/k8s.io/apimachinery/pkg/runtime/serializer:go_default_library",
+        "//vendor/k8s.io/client-go/kubernetes:go_default_library",
+        "//vendor/k8s.io/client-go/kubernetes/scheme:go_default_library",
+        "//vendor/k8s.io/client-go/plugin/pkg/client/auth:go_default_library",
+        "//vendor/k8s.io/client-go/rest:go_default_library",
+        "//vendor/k8s.io/client-go/tools/clientcmd:go_default_library",
+    ],
+)

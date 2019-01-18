@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "apiconfig.go",
+        "load.go",
+    ],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/projectcalico/libcalico-go/lib/apiconfig",
+    importpath = "github.com/projectcalico/libcalico-go/lib/apiconfig",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/kelseyhightower/envconfig:go_default_library",
+        "//vendor/github.com/projectcalico/go-yaml-wrapper:go_default_library",
+        "//vendor/github.com/projectcalico/libcalico-go/lib/apis/v3:go_default_library",
+        "//vendor/github.com/sirupsen/logrus:go_default_library",
+        "//vendor/k8s.io/apimachinery/pkg/apis/meta/v1:go_default_library",
+    ],
+)
