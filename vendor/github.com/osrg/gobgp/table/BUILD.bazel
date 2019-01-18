@@ -1,0 +1,26 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "adj.go",
+        "destination.go",
+        "message.go",
+        "path.go",
+        "policy.go",
+        "roa.go",
+        "table.go",
+        "table_manager.go",
+        "vrf.go",
+    ],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/osrg/gobgp/table",
+    importpath = "github.com/osrg/gobgp/table",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/armon/go-radix:go_default_library",
+        "//vendor/github.com/osrg/gobgp/config:go_default_library",
+        "//vendor/github.com/osrg/gobgp/packet/bgp:go_default_library",
+        "//vendor/github.com/satori/go.uuid:go_default_library",
+        "//vendor/github.com/sirupsen/logrus:go_default_library",
+    ],
+)

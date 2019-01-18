@@ -1,0 +1,28 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "bgp_configs.go",
+        "default.go",
+        "default_linux.go",
+        "default_nonlinux.go",
+        "serve.go",
+        "util.go",
+    ],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/osrg/gobgp/config",
+    importpath = "github.com/osrg/gobgp/config",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/osrg/gobgp/packet/bgp:go_default_library",
+        "//vendor/github.com/osrg/gobgp/packet/bmp:go_default_library",
+        "//vendor/github.com/osrg/gobgp/packet/rtr:go_default_library",
+        "//vendor/github.com/sirupsen/logrus:go_default_library",
+        "//vendor/github.com/spf13/viper:go_default_library",
+    ] + select({
+        "@io_bazel_rules_go//go/platform:linux": [
+            "//vendor/github.com/vishvananda/netlink:go_default_library",
+        ],
+        "//conditions:default": [],
+    }),
+)

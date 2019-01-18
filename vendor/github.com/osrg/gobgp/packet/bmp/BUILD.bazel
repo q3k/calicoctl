@@ -1,0 +1,10 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["bmp.go"],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/osrg/gobgp/packet/bmp",
+    importpath = "github.com/osrg/gobgp/packet/bmp",
+    visibility = ["//visibility:public"],
+    deps = ["//vendor/github.com/osrg/gobgp/packet/bgp:go_default_library"],
+)

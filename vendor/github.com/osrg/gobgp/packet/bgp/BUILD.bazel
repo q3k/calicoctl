@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "bgp.go",
+        "bgpattrtype_string.go",
+        "constant.go",
+        "esitype_string.go",
+        "fsmstate_string.go",
+        "helper.go",
+        "validate.go",
+    ],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/osrg/gobgp/packet/bgp",
+    importpath = "github.com/osrg/gobgp/packet/bgp",
+    visibility = ["//visibility:public"],
+)

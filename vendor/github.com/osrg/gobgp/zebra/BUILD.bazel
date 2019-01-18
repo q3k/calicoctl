@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "link_type_string.go",
+        "safi_string.go",
+        "zapi.go",
+        "zapi_bsd.go",
+        "zapi_darwin.go",
+        "zapi_linux.go",
+        "zapi_windows.go",
+    ],
+    importmap = "github.com/projectcalico/calicoctl/vendor/github.com/osrg/gobgp/zebra",
+    importpath = "github.com/osrg/gobgp/zebra",
+    visibility = ["//visibility:public"],
+    deps = ["//vendor/github.com/sirupsen/logrus:go_default_library"],
+)
